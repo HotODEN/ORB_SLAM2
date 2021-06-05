@@ -124,6 +124,11 @@ public:
 
     void StartViewer();
 
+    vector<MapPoint*> GetAllMapPoints();
+    vector<MapPoint*> GetReferenceMapPoints();
+
+
+
 private:
 
     // Input sensor

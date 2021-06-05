@@ -86,7 +86,12 @@ int main(int argc, char **argv)
 #endif
 
         // Pass the image to the SLAM system
-        SLAM.TrackMonocular(im,tframe);
+
+        cv::Mat camera_pose = SLAM.TrackMonocular(im,tframe);
+
+        cout << tframe << endl;
+
+        cout << SLAM.GetTrackingState() << camera_pose << endl;
 
 #ifdef COMPILEDWITHC11
         std::chrono::steady_clock::time_point t2 = std::chrono::steady_clock::now();

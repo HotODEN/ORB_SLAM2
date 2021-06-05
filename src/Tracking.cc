@@ -690,9 +690,10 @@ void Tracking::CreateInitialMapMonocular()
     float medianDepth = pKFini->ComputeSceneMedianDepth(2);
     float invMedianDepth = 1.0f/medianDepth;
 
-    if(medianDepth<0 || pKFcur->TrackedMapPoints(1)<100)
+    if(medianDepth<0 || pKFcur->TrackedMapPoints(1)<80)
     {
-        cout << "Wrong initialization, reseting..." << endl;
+        cout << "Wrong initialization, reseting... (tracked: "
+             << pKFcur->TrackedMapPoints(1) << ")" << endl;
         Reset();
         return;
     }
